@@ -3,3 +3,5 @@
 <% @dogs.each do |dog| %>
 <%= dog.name %>
 <% end %>
+
+<%= link_to 'Create a Dog', new_dog_path, class: 'btn btn-primary btn-lg shadow-lg custom-button' %>
