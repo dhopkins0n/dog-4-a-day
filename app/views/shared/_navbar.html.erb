@@ -1,49 +1,39 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"> </a>
-    <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?q=80&w=2568&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class ="navbar-logo"/>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <%= link_to "#", class: "navbar-brand" do %>
+      <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGRvZ3xlbnwwfHwwfHx8MA%3D%3D" class="navbar-logo">
+    <% end %>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+          <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-
-            <a class="nav-link" href="#">Messages</a>
-          </li>
-          <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
-            </div>
-          </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
-      </ul>
-    </div>
-  </div>
-</div>
-
-            <a class="nav-link" href="#">Dashboard</a>
+            <%= link_to "Dashboard", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <span class="nav-link">Welcome, <%= current_user.first_name %>!</span>
+            <% if current_user %>
+              <%= link_to "Welcome, #{current_user.first_name}", "#", class: "nav-link" %>
+            <% else %>
+              <%= link_to "Welcome", "#", class: "nav-link" %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="avatar">
+              <%= image_tag "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1", class: "avatar", alt: "dropdown menu" %>
+            </a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link btn btn-ghost" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-ghost" %>
           </li>
         <% end %>
       </ul>
     </div>
-    <% if user_signed_in? %>
-      <button class="btn btn-ghost" type="button" onclick="logout()">Log Out</button>
-    <% else %>
-      <a class="btn btn-ghost" href="/users/sign_up">Sign Up</a>
-    <% end %>
-    </div>
   </div>
-
+</div>
