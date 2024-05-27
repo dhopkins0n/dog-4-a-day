@@ -3,7 +3,8 @@
 <p> <%= @dog.breed %> </p>
 <p> <%= @dog.description %> </p>
 
-<%= link_to "Edit this dog", edit_dog_path(@dog) %> |
+<%= link_to "Edit this dog", edit_dog_path(@dog) %>
+
 <%= link_to "Back to dog", dogs_path %>
 
-<%= button_to "Destroy this dog", @dog, method: :delete %>
+<%= button_to "Destroy this dog", @dog, method: :delete, class: 'btn btn-danger'%>

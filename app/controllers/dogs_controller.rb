@@ -25,7 +25,7 @@ class DogsController < ApplicationController
   end
 
   def update
-    if @dog.update
+    if @dog.update(dog_params)
       redirect_to @dog, notice: 'Dog was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
