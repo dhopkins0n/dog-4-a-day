@@ -6,4 +6,6 @@ class Dog < ApplicationRecord
   validates :breed, presence: true, length: { maximum: 20 }
   validates :age, presence: true, numericality: { only_integer: true }
   validates :description, length: { maximum: 500 }
+  
+  has_one_attached :photo
 end
