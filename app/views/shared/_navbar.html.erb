@@ -22,9 +22,8 @@
           </li>
           <li class="nav-item">
             <a href="#" class="avatar">
-
               <% if current_user.photo.attached?%>
-               <%= cl_image_tag current_user.photo.key, height:200, width: 200, class: "Avatar"  %>
+               <%= cl_image_tag current_user.photo.key, class: "avatar"  %>
               <% else %>
                 <%= image_tag "avatar_placeholder.webp" %>
               <% end %>
