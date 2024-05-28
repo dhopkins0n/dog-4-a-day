@@ -1,0 +1,39 @@
+.hero-banner-dogs {
+  display: flex;
+  z-index: 950;
+  justify-content: flex-start; /* Aligns the text-container to the left */
+  align-items: center;         /* Centers the text-container vertically */
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  width: 100%;
+  background-color: black;
+  background-image: url(hairy-dog.png);
+  padding-left: 200px;
+}
+
+
+.text-container {
+  width: 500px;
+  /* Additional styles if needed */
+}
+
+.hero-banner-dogs h1 {
+  margin: 0;
+  font-size: 80px;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  color: white;
+}
+
+.hero-banner-dogs p {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: white;
+  margin-bottom:20px;
+}
+
+a {
+  text-decoration: none;
+}
