@@ -1,0 +1,30 @@
+
+<h2>
+My dogs
+</h2>
+<ul>
+    <% current_user.dogs.each do |dog| %>
+  <li>
+      <%= link_to dog.name, dog_path(dog) %>
+  </li>
+    <% end %>
+</ul>
+<%= link_to 'register a new dog', new_dog_path, class: 'btn btn-primary btn-lg shadow-lg custom-button' %>
+
+<h2>
+My bookings
+</h2>
+<ul>
+    <% current_user.bookings.each do |booking| %>
+  <li>
+      <%= booking.dog.name %> <%= booking.date %>
+  </li>
+    <% end %>
+</ul>
+
+<%# <h2>
+<%# My dog's booking requests
+</h2>
+<ul>
+    <% current_user.dogs.bookings.each do |booking| %>
+  <%# <li> %>
