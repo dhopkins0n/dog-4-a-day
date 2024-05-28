@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgb(0, 0, 0);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,8 +17,20 @@
   background-position: cover;
   border-radius:10px;
   object-fit: cover;
+  box-shadow: 0px 0px 12px rgb(255, 255, 255);
 }
 
 .nav-item {
 padding-left:10px;
+color:white;
+}
+
+.navbar-nav {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  --bs-nav-link-color: white;
+  --bs-nav-link-hover-color: rgba(255, 255, 255, 0.72);
+  --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+
 }
