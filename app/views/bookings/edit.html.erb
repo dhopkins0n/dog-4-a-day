@@ -1,0 +1,11 @@
+<h1>Edit Booking</h1>
+
+<%= simple_form_for [@booking.dog, @booking] do |f| %>
+  <%= f.input :start_time, as: :time, label: 'Start Time' %>
+  <%= f.input :end_time, as: :time, label: 'End Time' %>
+  <%= f.input :date, label: 'Booking Date' %>
+  <%= f.input :status, collection: ['Pending', 'Approved', 'Declined', 'Completed'], include_blank: 'Select Status', label: 'Status' %>
+  <%= f.button :submit, 'Update Booking', class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Back', dog_path(@booking.dog), class: 'btn btn-secondary' %>
