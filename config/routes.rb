@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :dogs do
-    resources :bookings
+    resources :bookings, only: [:create, :edit, :update, :destroy]
   end
 end
