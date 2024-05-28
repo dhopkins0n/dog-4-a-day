@@ -17,14 +17,19 @@ My bookings
 <ul>
     <% current_user.bookings.each do |booking| %>
   <li>
-      <%= booking.dog.name %> <%= booking.date %>
+      <%= booking.dog.name %> <%= booking.date %> <%= booking.status %>
   </li>
     <% end %>
 </ul>
 
-<%# <h2>
-<%# My dog's booking requests
+ <h2>
+ My dog's booking requests
 </h2>
 <ul>
-    <% current_user.dogs.bookings.each do |booking| %>
-  <%# <li> %>
+<li>
+    <% current_user.bookings_as_owner.each do |booking| %>
+      <li>
+        <%= booking.dog.name %> <%= booking.date %> <%= booking.status %>
+
+      </li>
+    <% end %>
