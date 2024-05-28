@@ -70,5 +70,5 @@ dog_3 = Dog.new(
 )
 
 file = URI.open("https://cdn.hanna-barberawiki.com/thumb/b/b6/Scrappy-Doo.png/1200px-Scrappy-Doo.png")
-dog_2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-dog_2.save!
+dog_3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+dog_3.save!

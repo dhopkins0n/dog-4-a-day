@@ -22,8 +22,16 @@
           </li>
           <li class="nav-item">
             <a href="#" class="avatar">
-              <%= image_tag "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1", class: "avatar", alt: "dropdown menu" %>
+
+              <% if current_user.photo.attached?%>
+               <%= cl_image_tag current_user.photo.key, height:200, width: 200, class: "Avatar"  %>
+              <% else %>
+                <%= image_tag "avatar_placeholder.webp" %>
+              <% end %>
+
             </a>
+
+
           </li>
           <li class="nav-item">
             <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link btn btn-ghost" %>
