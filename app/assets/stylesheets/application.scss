@@ -12,6 +12,7 @@
 @import "pages/index";
 @import "components/button";
 @import "components/card";
+@import "components/footer";
 
 // Your dogs
 @import "pages/dogs/index";
@@ -25,8 +26,4 @@ p {
 body {
   background-color: black;
   color:white;
-  padding-top:10px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom:50px;
 }
