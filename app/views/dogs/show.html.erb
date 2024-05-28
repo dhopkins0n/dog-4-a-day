@@ -3,8 +3,29 @@
 <p> <%= @dog.breed %> </p>
 <p> <%= @dog.description %> </p>
 
-<%= link_to "Edit this dog", edit_dog_path(@dog) %>
 
-<%= link_to "Back to dog", dogs_path %>
+<h3>Bookings</h3>
+<ul>
+  <% @dog.bookings.each do |booking| %>
+  <li>
+    <%= booking.start_time %> - <%= booking.end_time %> - <%= booking.date %> (Status: <%= booking.status %>)
+    <%= link_to 'Edit', edit_dog_booking_path(@dog, booking), class: 'btn btn-sm btn-secondary' %>
+    <%= link_to "Delete Booking",
+        dog_booking_path(@dog, booking),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+  </li>
+  <% end %>
+</ul>
 
-<%= button_to "Destroy this dog", @dog, method: :delete, class: 'btn btn-danger'%>
+
+<div>
+  <%= link_to "Edit this dog", edit_dog_path(@dog) %>
+
+  <%= link_to "Back to dog", dogs_path %>
+
+  <%= button_to "Destroy this dog", @dog, method: :delete, class: 'btn btn-danger'%>
+
+  <%= link_to "Create a booking", new_dog_booking_path(@dog), class: 'btn btn-info'  %>
+
+</div>
