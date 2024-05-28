@@ -1,5 +1,8 @@
 .navbar-lewagon {
+  padding:15px;
   justify-content: space-between;
+  position: sticky; /* Make the navbar sticky */
+  top:0;
   background: rgb(0, 0, 0);
 }
 
