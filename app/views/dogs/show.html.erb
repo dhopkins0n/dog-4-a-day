@@ -5,18 +5,26 @@
 
 
 <h3>Bookings</h3>
-<ul>
-  <% @dog.bookings.each do |booking| %>
-  <li>
-    <%= booking.start_time %> - <%= booking.end_time %> - <%= booking.date %> (Status: <%= booking.status %>)
-    <%= link_to 'Edit', edit_dog_booking_path(@dog, booking), class: 'btn btn-sm btn-secondary' %>
-    <%= link_to "Delete Booking",
-        dog_booking_path(@dog, booking),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %>
-  </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col" data-controller="insert-in-list">
+      <div data-insert-in-list-target="items">
+        <ul>
+          <% @dog.bookings.each do |booking| %>
+        <li>
+            <%= booking.start_time %> - <%= booking.end_time %> - <%= booking.date %> (Status: <%= booking.status %>)
+            <%= link_to 'Edit', edit_dog_booking_path(@dog, booking), class: 'btn btn-sm btn-secondary' %>
+            <%= link_to "Delete Booking",
+                dog_booking_path(@dog, booking),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+              %>
+        </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <div>
@@ -25,7 +33,13 @@
   <%= link_to "Back to dog", dogs_path %>
 
   <%= button_to "Destroy this dog", @dog, method: :delete, class: 'btn btn-danger'%>
-
-  <%= link_to "Create a booking", new_dog_booking_path(@dog), class: 'btn btn-info'  %>
-
 </div>
+
+<div data-controller="toggle" class="mt-5">
+  <button data-action="click->toggle#fire" class="btn btn-outline-primary">Book this dog</button>
+    <div data-toggle-target="togglableElement" class="d-none">
+       <%= render 'bookings/form', dog: @dog, booking: @booking %>
+    </div>
+</div>
+
+  <%= link_to 'Back', dog_path(@dog), class: 'btn btn-secondary' %>
