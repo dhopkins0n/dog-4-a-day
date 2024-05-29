@@ -6,6 +6,10 @@ My dogs
     <% current_user.dogs.each do |dog| %>
   <li>
       <%= link_to dog.name, dog_path(dog) %>
+      <div>
+  <%= link_to "Edit this dog", edit_dog_path(dog) %>
+  <%= button_to "un-list this dog", dog, method: :delete, class: 'btn btn-danger'%>
+</div>
   </li>
     <% end %>
 </ul>
