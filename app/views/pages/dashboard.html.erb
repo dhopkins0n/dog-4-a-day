@@ -28,7 +28,7 @@ My dogs +
 My bookings +
 </button>
 
-<div class= "d-none" data-toggle-target="togglableElement">
+<div data-toggle-target="togglableElement">
 <ul>
     <% current_user.bookings.order(created_at: :desc).each do |booking| %>
   <li>
@@ -37,16 +37,8 @@ My bookings +
     <% end %>
 </ul>
 </div>
+</div>
 
-<div>
-
-
- <div data-controller="toggle">
-<button  data-action= "click->toggle#fire">
-My dog's booking requests +
-</button>
-<div class= "d-none" data-toggle-target="togglableElement">
-<ul>
 
  <div data-controller="toggle">
 <button  data-action= "click->toggle#fire">
