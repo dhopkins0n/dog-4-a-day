@@ -1,3 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "Go to all dogs", dogs_path, class: 'btn btn-primary btn-lg shadow-lg custom-button' %>
+<div class="page-container">
+<div class="hero-banner-dogs">
+  <div class="text-container">
+    <h1>Dog 4 a day</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.
+    Change your life and learn to code at one of our campuses around the world.</p>
+    <%= link_to "Go to all dogs", dogs_path, class: 'btn-ghost' %>
+  </div>
+  <div class="mobile-banner-image"></div>
+</div>
+
+<div class="card-list mb-5 pb-5">
+      <% @dogs.each do |dog| %>
+        <%= link_to dog_path(dog), class: 'text-decoration-none' do %>
+          <div class= "card-item padding-card">
+            <% if dog.photo.attached? %>
+              <%= cl_image_tag dog.photo.key %>
+            <% else %>
+              <%= image_tag "https://images.unsplash.com/photo-1566710582818-d673dc761201?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" %>
+            <% end %>
+            <div class="card-title">
+              <h2 class="uppercase-text"><%= dog.name %></h2>
+              <div class="card-sub-title">
+                <h3>Age: <%= dog.age %></h3>
+                <h3><%= dog.breed %></h3>
+              </div>
+            </div>
+            <p><%= dog.description %></p>
+            <button class="card-btn" href="#">Woofing pick me</button>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>

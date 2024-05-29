@@ -16,14 +16,7 @@
 
 // Your dogs
 @import "pages/dogs/index";
+@import "shared";
 
-// ALL
-
-p {
-  margin-bottom: 0;
-}
-
-body {
-  background-color: black;
-  color:white;
-}
+@import "components/banner";
+@import "components/filter";
