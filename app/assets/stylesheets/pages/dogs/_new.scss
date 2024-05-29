@@ -1,0 +1,22 @@
+.form-container {
+display:flex;
+flex-direction:column;
+max-width:700px;
+justify-content: center;
+}
+
+.form-inputs {
+  display:flex;
+  flex-direction:column;
+  max-width:700px;
+}
+
+.form-label {
+  display:flex;
+}
+
+
+.form-control {
+  border-radius:30px;
+  max-width:700px;
+}
