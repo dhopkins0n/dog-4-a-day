@@ -1,0 +1,31 @@
+.form-container {
+display:flex;
+flex-direction:column;
+max-width:700px;
+justify-content: center;
+height:100vh;
+}
+
+.form-container h1{
+  color:white;
+}
+
+.form-container p {
+  color:white;
+}
+
+.form-inputs {
+  display:flex;
+  flex-direction:column;
+  max-width:700px;
+}
+
+.form-label {
+  display:flex;
+  color:white;
+}
+
+.form-control {
+  border-radius:30px;
+  max-width:700px;
+}

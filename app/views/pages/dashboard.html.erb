@@ -22,6 +22,7 @@ My dogs +
 </div>
 </div>
 
+
 <div data-controller="toggle">
 <button  data-action= "click->toggle#fire">
 My bookings +
@@ -36,8 +37,16 @@ My bookings +
     <% end %>
 </ul>
 </div>
+
 <div>
 
+
+ <div data-controller="toggle">
+<button  data-action= "click->toggle#fire">
+My dog's booking requests +
+</button>
+<div class= "d-none" data-toggle-target="togglableElement">
+<ul>
 
  <div data-controller="toggle">
 <button  data-action= "click->toggle#fire">
