@@ -1,15 +1,13 @@
 
-<%= simple_form_for  [dog, booking],
-    data: {
-       insert_in_list_target: "form",
-       action: "submit->insert-in-list#send"
-       } do |f| %>
-  <%= f.input :start_time, as: :time, label: 'Start Time' %>
-  <%= f.input :end_time, as: :time, label: 'End Time'%>
-  <%= f.input :date,
-              label: 'Booking Date',
+<%= simple_form_for  [dog, booking] do |f| %>
+  <%# <%=  f.input :date,
+              label: false,
               as: :string,
-              input_html: { data: { controller: "datepicker" } }  %>
+              input_html: { class: "d-none", data: { controller: "datepicker", inline: true } }  %>
+  <%= f.input :start_time, label: 'Start Time',  as: :string,
+              input_html: { class: "d-none", data: { controller: "datepicker", inline: true } } %>
+  <%= f.input :end_time, label: 'End Time',  as: :string,
+              input_html: { class: "d-none", data: { controller: "datepicker", inline: true } }%>
   <% if booking != nil %>
   <%= f.input :status, as: :hidden, input_html: { value: 'Pending'} %>
   <%else %>

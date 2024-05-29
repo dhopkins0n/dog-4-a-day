@@ -1,45 +1,30 @@
-<h1> <%= @dog.name %> </h1>
-<p> <%= @dog.age %> </p>
-<p> <%= @dog.breed %> </p>
-<p> <%= @dog.description %> </p>
 
-
-<h3>Bookings</h3>
-<div class="container">
-  <div class="row">
-    <div class="col" data-controller="insert-in-list">
-      <div data-insert-in-list-target="items">
-        <ul>
-          <% @dog.bookings.each do |booking| %>
-        <li>
-            <%= booking.start_time %> - <%= booking.end_time %> - <%= booking.date %> (Status: <%= booking.status %>)
-            <%= link_to 'Edit', edit_dog_booking_path(@dog, booking), class: 'btn btn-sm btn-secondary' %>
-            <%= link_to "Delete Booking",
-                dog_booking_path(@dog, booking),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-              %>
-        </li>
-        <% end %>
-        </ul>
+<div class="page-container">
+<%= link_to dogs_path do %>
+  <i class="fa-solid fa-arrow-left"></i>
+  Back to All Dogs
+  <% end %>
+  <div class="dog-profile">
+    <div class="profile-header">
+      <% if @dog.photo.attached? %>
+        <%= image_tag @dog.photo, alt: @dog.name, class: "profile-picture" %>
+      <% else %>
+        <img src="https://via.placeholder.com/150" alt="Placeholder image" class="profile-picture">
+      <% end %>
+      <div class="profile-description">
+        <h1><%= @dog.name %></h1>
+        <div class="dog-details">
+          <p>Age: <%= @dog.age %></p>
+          <p>Breed: <%= @dog.breed %></p>
+          <p><%= @dog.description %></p>
+        </div>
       </div>
     </div>
+  <div data-controller="toggle" class="mt-5">
+    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Book this dog</button>
+      <div data-toggle-target="togglableElement" class="d-none">
+        <%= render 'bookings/form', dog: @dog, booking: @booking %>
+      </div>
+  </div>
   </div>
 </div>
-
-
-<div>
-  <%= link_to "Edit this dog", edit_dog_path(@dog) %>
-
-  <%= link_to "Back to dog", dogs_path %>
-
-  <%= button_to "Destroy this dog", @dog, method: :delete, class: 'btn btn-danger'%>
-</div>
-
-<div data-controller="toggle" class="mt-5">
-  <button data-action="click->toggle#fire" class="btn btn-outline-primary">Book this dog</button>
-    <div data-toggle-target="togglableElement" class="d-none">
-       <%= render 'bookings/form', dog: @dog, booking: @booking %>
-    </div>0
-</div>
-
-  <%= link_to 'Back', dog_path(@dog), class: 'btn btn-secondary' %>
