@@ -22,10 +22,12 @@ My dogs +
 </div>
 </div>
 
+
 <div data-controller="toggle">
 <button  data-action= "click->toggle#fire">
 My bookings +
 </button>
+
 <div class= "d-none" data-toggle-target="togglableElement">
 <ul>
     <% current_user.bookings.order(created_at: :desc).each do |booking| %>
@@ -36,6 +38,7 @@ My bookings +
 </ul>
 </div>
 
+<div>
 
 
  <div data-controller="toggle">
@@ -45,6 +48,12 @@ My dog's booking requests +
 <div class= "d-none" data-toggle-target="togglableElement">
 <ul>
 
+ <div data-controller="toggle">
+<button  data-action= "click->toggle#fire">
+My dog's booking requests +
+</button>
+<div class= "d-none" data-toggle-target="togglableElement">
+<ul>
     <% current_user.bookings_as_owner.order(created_at: :desc).each do |booking| %>
       <li>
         <%= booking.dog.name %> <%= booking.date %>
