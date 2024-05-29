@@ -26,10 +26,8 @@ My bookings
  My dog's booking requests
 </h2>
 <ul>
-<li>
     <% current_user.bookings_as_owner.each do |booking| %>
       <li>
         <%= booking.dog.name %> <%= booking.date %> <%= booking.status %>
-
       </li>
     <% end %>
