@@ -6,7 +6,7 @@
   border-radius: 50px;
   font-weight: lighter;
   opacity: 100%;
-  transition: opacity 0.3s ease;
+  transition:  0.3s ease;
   font-family: "Lato", sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -14,7 +14,9 @@
 }
 
 .btn-ghost:hover {
-opacity:80%;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
 }
 
 .btn-secondary {
@@ -27,11 +29,34 @@ opacity:80%;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 100%;
-  transition: opacity 0.3s ease;
+  transition:  0.3s ease;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-style: normal;
 
 }
+.submit-btn-container {
+  text-align: center; /* Align the button in the center */
+  margin-bottom:10px;
+}
 
+.submit-btn {
+  background-color: black;
+  width: 100%; /* Make the button full width */
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 100%;
+  transition: opacity 0.3s ease;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  transition: 0.3s ease;
+}
 
+.submit-btn:hover {
+  background-color: #c7c7c7;
+  color: #fff;
+}

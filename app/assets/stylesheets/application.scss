@@ -16,9 +16,14 @@
 
 // Your dogs
 @import "pages/dogs/index";
+@import "pages/dogs/new";
 @import "shared";
 
 @import "components/banner";
 @import "components/filter";
 
+
 @import "pages/dogs/show"
+
+@import "pages/users/sign";
+
