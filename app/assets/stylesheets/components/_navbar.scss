@@ -1,5 +1,8 @@
 .navbar-lewagon {
+  padding:15px;
   justify-content: space-between;
+  position: sticky; /* Make the navbar sticky */
+  top:0;
   background: rgb(0, 0, 0);
 }
 
@@ -34,3 +37,9 @@ color:white;
   --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
 
 }
+
+.avatar {
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  }

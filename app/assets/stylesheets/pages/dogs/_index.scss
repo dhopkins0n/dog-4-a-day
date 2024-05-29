@@ -1,26 +1,25 @@
 .hero-banner-dogs {
   display: flex;
-  z-index: 950;
-  justify-content: flex-start; /* Aligns the text-container to the left */
-  align-items: center;         /* Centers the text-container vertically */
+  justify-content: flex-start; /* Align text left on desktop */
+  align-items: center;         /* Center vertically */
   background-size: cover;
   background-position: center;
   height: 400px;
   width: 100%;
   background-color: black;
   background-image: url(hairy-dog.png);
-  padding-left: 200px;
+  padding-left: 200px; /* Left padding for desktop */
+  position: relative;
 }
 
-
 .text-container {
-  width: 500px;
-  /* Additional styles if needed */
+  max-width: 800px;
+  text-align: left; /* Align text left on desktop */
 }
 
 .hero-banner-dogs h1 {
   margin: 0;
-  font-size: 80px;
+  font-size: 6vw; /* Responsive font size */
   font-family: "Anton", sans-serif;
   font-weight: 400;
   color: white;
@@ -31,9 +30,50 @@
   font-weight: 300;
   font-style: normal;
   color: white;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 }
 
 a {
   text-decoration: none;
+}
+
+.mobile-banner-image {
+  display: none; /* Hide mobile image by default */
+  width: 100%;
+  height: 100%; /* Ensure it covers the area */
+  background-size: cover; /* Ensure background image covers the element */
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Position it behind the text */
+  background-image: url(mobile-banner-image.png); /* Set mobile background image */
+
+}
+
+/* Media Query for Mobile */
+@media screen and (max-width: 767px) {
+  .hero-banner-dogs {
+    flex-direction: column; /* Stack elements vertically on mobile */
+    align-items: flex-start; /* Align items left on mobile */
+    padding: 20px; /* Adjust padding for smaller screens */
+    height: auto; /* Adjust height for mobile */
+    background-image: none; /* Remove background image for mobile */
+  }
+
+  .text-container {
+    width: 100%; /* Occupy full width */
+    text-align: center; /* Center text on mobile */
+    padding-left: 0; /* Remove left padding on mobile */
+    margin-top: 20px; /* Add margin between image and text */
+  }
+
+  .hero-banner-dogs h1 {
+    font-size: 8vw; /* Increase font size for smaller screens */
+  }
+
+  .mobile-banner-image {
+    display: block; /* Show mobile image */
+    background-image: url(mobile-banner-image.png); /* Set mobile background image */
+  }
 }

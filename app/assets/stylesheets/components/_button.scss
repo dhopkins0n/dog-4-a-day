@@ -2,7 +2,7 @@
   width:100px;
   color: #ffffff;
   border: 1px solid #ffffff;
-  padding: 8px 34px;
+  padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 100%;
@@ -15,4 +15,21 @@
 
 .btn-ghost:hover {
 opacity:80%;
+}
+
+.btn-secondary {
+  margin-top:50px;
+  width:100px;
+  color: #000000;
+  background-color:white;
+  border: 1px solid #ffffff;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 100%;
+  transition: opacity 0.3s ease;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
 }

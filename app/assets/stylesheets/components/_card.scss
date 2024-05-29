@@ -1,0 +1,112 @@
+.card-category {
+  background-color: black;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center top; /* Shifts image to the center vertically and bottom horizontally */
+  height: 400px; /* Adjusted height */
+  width: 300px;
+  display: flex;
+  flex-direction: column; /* To stack content vertically */
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 2px solid white;
+  margin-top: 10px;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.card-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: white; /* Blue color, you can change it */
+  color: black; /* Text color */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.padding-card {
+  padding: 20px;
+}
+
+.card-title {
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-end;
+}
+
+.card-sub-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.uppercase-text {
+  text-transform: uppercase;
+}
+
+.inner-card {
+  padding: 10px;
+}
+
+.card-category > img {
+  height: 150px; /* Adjusted height */
+  width: 100%; /* Ensures image covers entire width */
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.card-title > h2 {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+}
+
+.card-sub-title > h3 {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 18px;
+  margin: 0;
+}
+
+.card-category > p {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 14px;
+}
+
+a {
+  color: white;
+}
+
+.card-area {
+  margin-left: 50px;
+  margin-right:50px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap onto new lines */
+  justify-content: space-between;
+  gap: 20px; /* Space between the cards */
+}
+
+@media screen and (max-width: 768px) {
+  .card-category {
+
+    width: 100%; /* Ensure cards take up full width on smaller screens */
+    margin-bottom: 20px; /* Maintain space between cards */
+  }
+
+  .card-area {
+    flex-direction: column; /* Stack cards vertically on small screens */
+    align-items: center; /* Center cards horizontally */
+  }
+}

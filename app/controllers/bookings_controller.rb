@@ -1,18 +1,21 @@
 class BookingsController < ApplicationController
-  before_action :set_dog, only:[:new, :create]
+  before_action :set_dog, only:[:create]
   before_action :set_booking, only:[:edit, :update, :destroy]
-  def new
-    @booking = Booking.new
-  end
 
   def create
     @booking = Booking.new(booking_params)
+
+
     @booking.dog = @dog
     @booking.user = current_user
-    if @booking.save!
-      redirect_to dog_path(@dog)
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @booking.save
+        format.html { redirect_to dog_bookings_path(@booking) }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      else
+        format.html { render "dogs/show", status: :unprocessable_entity }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      end
     end
   end
 

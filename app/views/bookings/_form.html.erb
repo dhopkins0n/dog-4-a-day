@@ -1,0 +1,15 @@
+
+<%= simple_form_for  [dog, booking],
+    data: {
+       insert_in_list_target: "form",
+       action: "submit->insert-in-list#send"
+       } do |f| %>
+  <%= f.input :start_time, as: :time, label: 'Start Time' %>
+  <%= f.input :end_time, as: :time, label: 'End Time'%>
+  <%= f.input :date,
+              label: 'Booking Date',
+              as: :string,
+              input_html: { data: { controller: "datepicker" } }  %>
+  <%= f.input :status, collection: ['Pending', 'Approved', 'Declined', 'Completed'] %>
+  <%= f.button :submit, class: "btn btn-primary"%>
+<% end %>
