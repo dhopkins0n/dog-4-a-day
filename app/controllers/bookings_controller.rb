@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking.dog = @dog
     @booking.user = current_user
     respond_to do |format|
-      if @booking.save
+      if @booking.save!
         format.html { redirect_to dashboard_path}
         format.json # Follows the classic Rails flow and look for a create.json view
       else
@@ -50,7 +50,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :date, :status)
+    params.require(:booking).permit(:start_time, :end_time, :status)
   end
 
 

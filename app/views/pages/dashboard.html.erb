@@ -32,7 +32,7 @@ My bookings +
 <ul>
     <% current_user.bookings.order(created_at: :desc).each do |booking| %>
   <li>
-      <%= booking.dog.name %> <%= booking.date %> <%= booking.status %>
+      <%= booking.dog.name %> <%= booking.start_time.strftime("booked for %m/%d/%Y at %I:%M%p") %> <%= booking.status %>
   </li>
     <% end %>
 </ul>
@@ -48,7 +48,7 @@ My dog's booking requests +
 <ul>
     <% current_user.bookings_as_owner.order(created_at: :desc).each do |booking| %>
       <li>
-        <%= booking.dog.name %> <%= booking.date %>
+        <%= booking.dog.name %> <%= booking.start_time %>
          <% if booking.status == "Pending" %>
           <%= simple_form_for [booking.dog, booking] do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 'Approved'} %>
