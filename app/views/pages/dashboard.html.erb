@@ -19,7 +19,7 @@ My dogs
 My bookings
 </h2>
 <ul>
-    <% current_user.bookings.each do |booking| %>
+    <% current_user.bookings.order(created_at: :desc).each do |booking| %>
   <li>
       <%= booking.dog.name %> <%= booking.date %> <%= booking.status %>
   </li>
@@ -30,9 +30,21 @@ My bookings
  My dog's booking requests
 </h2>
 <ul>
-    <% current_user.bookings_as_owner.each do |booking| %>
-      <li>
-        <%= booking.dog.name %> <%= booking.date %> <%= booking.status %>
 
+    <% current_user.bookings_as_owner.order(created_at: :desc).each do |booking| %>
+      <li>
+        <%= booking.dog.name %> <%= booking.date %>
+         <% if booking.status == "Pending" %>
+          <%= simple_form_for [booking.dog, booking] do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'Approved'} %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+          <% end %>
+          <%= simple_form_for [booking.dog, booking] do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'Declined'} %>
+            <%= f.submit 'Reject', class: 'btn btn-light' %>
+          <% end %>
+        <% else %>
+          <p class='booking-tag'><%= booking.status %></p>
+ <% end %>
       </li>
     <% end %>

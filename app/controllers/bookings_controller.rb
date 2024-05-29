@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to dog_bookings_path(@booking) }
+        format.html { redirect_to dashboard_path}
         format.json # Follows the classic Rails flow and look for a create.json view
       else
         format.html { render "dogs/show", status: :unprocessable_entity }
@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to dog_path(@booking.dog), notice: "Booking was successfully updated"
+      redirect_to dashboard_path, notice: "Booking was successfully updated"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,6 +34,10 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to dog_path(@booking.dog), status: :see_other, notice: 'Booking was successfully deleted.'
   end
+
+  # def pending?
+  #   status: == 'Pending'
+  # end
 
   private
 
@@ -48,4 +52,6 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_time, :end_time, :date, :status)
   end
+
+
 end
