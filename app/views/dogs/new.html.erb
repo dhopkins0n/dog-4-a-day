@@ -1,3 +1,7 @@
+<div class="page-container">
+<div class="form-container">
+<h1>Create your dog</h1>
+<p class="pb-5">Fill in the form to add your dog to the system</p>
 <%= simple_form_for(@dog) do |f| %>
   <div class="form-inputs">
     <%= f.input :name %>
@@ -6,10 +10,15 @@
     <%= f.input :description %>
     <%= f.input :photo, as: :file %>
   </div>
-
   <div class="form-actions">
-    <%= f.button :submit , class: "btn-secondary" %>
+<div class="submit-btn-container">
+  <%= f.submit "Submit", class: "submit-btn" %>
+</div>
   </div>
 <% end %>
-
- <%= link_to "Back to All Dogs", dogs_path %>
+<%= link_to dogs_path do %>
+  <i class="fa-solid fa-arrow-left"></i>
+  Back to All Dogs
+<% end %>
+ </div>
+ </div>
