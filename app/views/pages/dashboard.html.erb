@@ -29,5 +29,6 @@ My bookings
     <% current_user.bookings_as_owner.each do |booking| %>
       <li>
         <%= booking.dog.name %> <%= booking.date %> <%= booking.status %>
+
       </li>
     <% end %>
