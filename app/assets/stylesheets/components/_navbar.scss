@@ -4,6 +4,8 @@
   position: sticky; /* Make the navbar sticky */
   top:0;
   background: rgb(0, 0, 0);
+  z-index:1000;
+  padding:20px;
 }
 
 .navbar-lewagon .navbar-collapse {

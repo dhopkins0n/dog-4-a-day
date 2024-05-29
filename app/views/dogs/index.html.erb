@@ -1,40 +1,50 @@
-<div class="hero-banner-dogs">
-  <div class="text-container">
-    <h1>All Dogs</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn-ghost" href="#">See more</a>
-  </div>
-  <div class="mobile-banner-image"></div>
-</div>
+<div class="page-container">
 
-<div class="card-area mb-5  pb-3">
-<div class="container">
-  <div class="row">
-    <% @dogs.each do |dog| %>
-      <div class="col-md-4">
+
+
+  <div class="row my-5 py-5">
+    <div class="col-6">
+      <h1>All Dogs</h1>
+      <p>Change your life and learn to code at one of our campuses around the world.Change your life and learn to code at one of our campuses around the world.Change your life and learn to code at one of our campuses around the world.</p>
+         <div class="search-container">
+        <input type="text" placeholder="Search...">
+    </div>
+          <a class="btn-ghost" href="#">See more</a>
+    </div>
+    <div class="col-6">
+      <%= image_tag "https://plus.unsplash.com/premium_photo-1669387727429-0a444196038d?q=80&w=3028&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "map" %>
+    </div>
+  </div>
+
+<div class="card-list">
+  <%# <div class="container">
+    <div class="row"> %>
+      <% @dogs.each do |dog| %>
         <%= link_to dog_path(dog), class: 'text-decoration-none' do %>
-          <div class="card-category padding-card">
-          <% if dog.photo.attached?%>
-               <%= cl_image_tag dog.photo.key %>
-              <% else %>
-                <%= image_tag "https://images.unsplash.com/photo-1566710582818-d673dc761201?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" %>
-              <% end %>
+          <div class= "card-item padding-card">
+            <% if dog.photo.attached? %>
+              <%= cl_image_tag dog.photo.key %>
+            <% else %>
+              <%= image_tag "https://images.unsplash.com/photo-1566710582818-d673dc761201?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" %>
+            <% end %>
             <div class="card-title">
-            <h2 class="uppercase-text"><%= dog.name %></h2>
-            <div class ="card-sub-title">
-            <h3>Age: <%= dog.age %></h3>
-            <h3><%= dog.breed %></h3>
+              <h2 class="uppercase-text"><%= dog.name %></h2>
+              <div class="card-sub-title">
+                <h3>Age: <%= dog.age %></h3>
+                <h3><%= dog.breed %></h3>
+              </div>
             </div>
-          </div>
-         <p><%= dog.description %></p>
-         <button class="card-btn" href="#">Woofing pick me</button>
+            <p><%= dog.description %></p>
+            <button class="card-btn" href="#">Woofing pick me</button>
           </div>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="mt-5 mb-5">
+      <%= link_to 'Create a Dog', new_dog_path, class: 'btn-secondary btn-lg shadow-lg custom-button' %>
+    </div>
   </div>
-  <div class="mt-5 mb-5">
-  <%= link_to 'Create a Dog', new_dog_path, class: 'btn-secondary btn-lg shadow-lg custom-button' %>
 </div>
 </div>
+
 </div>
