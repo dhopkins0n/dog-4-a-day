@@ -18,7 +18,7 @@ user_1 = User.create!(
   first_name: "Jordan",
   last_name: "den Dulk",
   phone_number: "123456",
-  address: "le wagon",
+  address: "138 Kingsland Rd, London E2 8DY",
   password: "123456"
 )
 
@@ -27,7 +27,7 @@ user_2 = User.new(
   first_name: "Shaggy",
   last_name: "Doo",
   phone_number: "123456",
-  address: "Mystery Van",
+  address: " Westminster Bridge Rd, London SE1 7PB",
   password: "123456"
 
 )
