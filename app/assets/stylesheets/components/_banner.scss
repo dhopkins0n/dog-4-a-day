@@ -38,10 +38,12 @@
 /* Media Query for Mobile */
 @media screen and (max-width: 800px) {
   .hero-banner-dogs {
+    margin: 30px auto;
+    gap: 20px;
+    max-width: 100%;
     display: flex;
     flex-direction: column; /* Stack elements vertically on mobile */
-    align-items: flex-start; /* Align items left on mobile */
-    padding: 20px; /* Adjust padding for smaller screens */
+    align-items: center; /* Align items left on mobile */
     height: 500px; /* Adjust height for mobile */
     background-image: url(mobile-dog-banner.png);
     justify-content: space-between;
@@ -50,6 +52,8 @@
 
   .text-container {
     width: 100%; /* Occupy full width */
+    align-items: center;
+    justify-content: center;
     text-align: center; /* Center text on mobile */
     padding-left: 0; /* Remove left padding on mobile */
     margin-top: 20px; /* Add margin between image and text */
