@@ -4,6 +4,10 @@
     <%= f.input :age %>
     <%= f.input :breed %>
     <%= f.input :description %>
+    <% @dog.images.each do |image| %>
+    <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
+    <% end %>
+    <%= f.file_field :images, multiple: true %>
   </div>
 
   <div class="form-actions">
