@@ -8,7 +8,9 @@
     <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
     <% end %>
     <%= f.file_field :images, multiple: true %>
-    <%= f.input :tag_list, as: :check_boxes, collection: [ 'Neutered', 'good with cats', 'good with children', 'good with other dogs', 'need company', 'need exercise' ] %>
+    <%= f.input :tag_list, as: :check_boxes, input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' ,collection: [ 'Neutered', 'good with cats', 'good with children', 'good with other dogs', 'need company', 'need exercise' ] %>
+
   </div>
 
   <div class="form-actions">
