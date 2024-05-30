@@ -9,4 +9,6 @@ class Dog < ApplicationRecord
 
   has_one_attached :photo
   has_many_attached :images
+
+  acts_as_taggable_on :tags
 end
