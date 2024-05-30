@@ -1,15 +1,14 @@
 <div class="page-container">
   <div class="row my-5 py-5">
-    <div class="col-6">
+    <div class="col-4">
       <h1>All Dogs</h1>
       <p>Change your life and learn to code at one of our campuses around the world.Change your life and learn to code at one of our campuses around the world.Change your life and learn to code at one of our campuses around the world.</p>
-         <div class="search-container">
-        <input type="text" class= "search-map" placeholder="Search...">
+
     </div>
-          <a class="btn-ghost" href="#">See more</a>
-    </div>
-    <div class="col-6">
-      <%= image_tag "https://media.wnyc.org/i/800/0/c/85/1/traffic-map-detal-may2015.png", class: "map" %>
+    <div class="col-8" data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
     </div>
   </div>
 
