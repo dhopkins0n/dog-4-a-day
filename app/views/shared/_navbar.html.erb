@@ -34,8 +34,8 @@
               <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-turbo-method="delete">Log out</a>
             </div>
           </li>
-            <li class="nav-item">
-            <%= link_to "Create dog", new_dog_path, class: "nav-link btn btn-ghost" %>
+          <li class="nav-item"> <!-- Added custom class -->
+            <%= link_to 'Register a new dog', new_dog_path, class: 'btn-ghost align-middle' %> <!-- Added custom class -->
           </li>
           <% else %>
           <li class="nav-item">
