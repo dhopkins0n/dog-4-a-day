@@ -17,7 +17,13 @@
           <p>Age: <%= @dog.age %></p>
           <p>Breed: <%= @dog.breed %></p>
           <p><%= @dog.description %></p>
-          <p>Tags: <%= @dog.tag_list.join(', ') %></p>
+          <div class="tag-list">
+          <p>Tags:
+            <% @dog.tag_list.each do |tag| %>
+              <span class="tag-item tag-selector"><%= tag %></span>
+            <% end %>
+          </p>
+          </div>
         </div>
       </div>
     </div>
