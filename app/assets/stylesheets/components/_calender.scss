@@ -1,0 +1,26 @@
+.dayContainer{
+  background-color: white;
+}
+
+.flatpickr-day.today {
+  border-color: #0073ff;
+  font-weight: bold;
+  border: 2px solid #4CAF50;
+}
+
+.flatpickr-time input.flatpickr-hour,
+.flatpickr-time input.flatpickr-minute,
+.flatpickr-am-pm input.flatpickr-am-pm{
+    font-weight: bold;
+    border: 2px solid #4CAF50; /* Example: Green border */
+    border-radius: 10px; /* Rounded borders */
+    padding: 5px;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.flatpickr-time input.flatpickr-hour:hover,
+.flatpickr-time input.flatpickr-minute:hover,
+.flatpickr-am-pm:hover {
+    border-color: #388E3C; /* Example: Darker green border on hover */
+    background-color: #11ff00; /* Example: Light blue background on hover */
+}

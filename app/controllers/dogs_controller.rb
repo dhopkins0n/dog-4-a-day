@@ -36,6 +36,9 @@ class DogsController < ApplicationController
 
   def update
     if @dog.update(dog_params)
+      if params[:dog][:images]
+        @dog.images.attach(params[:dog][:images][0])
+      end
       redirect_to @dog, notice: 'Dog was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
@@ -54,6 +57,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :age, :breed, :description, :photo)
+    params.require(:dog).permit(:name, :age, :breed, :description, :photo, tag_list: [], images: [])
   end
 end

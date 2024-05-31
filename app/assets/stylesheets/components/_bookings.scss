@@ -1,0 +1,52 @@
+.booking-container {
+margin-top: 40px;
+height:80px;
+width:100%;
+border-radius:20px;
+background-color: rgb(253, 253, 253);
+color:black;
+padding:5px;
+
+}
+
+
+.date-group {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size:18px;
+}
+
+.date-group p{
+  font-family: "Anton", sans-serif;
+}
+
+.date-weight {
+font-size: 34px;
+color:black;
+}
+.booking-container p {
+color:black;
+}
+
+.avatar-tiny {
+  height:20px;
+  width:20px;
+  border-radius: 50%;
+  margin-right:10px;
+}
+
+.renter-details-group {
+padding-top:15px;
+}
+
+.time-location-group {
+  padding-top:10px;
+  padding-bottom: 10px;
+  border-left: 1px solid grey;
+  padding-left:30px;
+}
+
+.time-location-group i {
+  padding-right:10px;
+}

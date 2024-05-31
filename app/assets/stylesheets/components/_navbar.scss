@@ -9,6 +9,11 @@
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.609);
 }
 
+.nav-link-title {
+  font-family: 'GoodBoy', sans-serif;
+  font-size:30px;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -26,6 +31,13 @@
   box-shadow: 0px 0px 12px rgb(255, 255, 255);
 }
 
+
+.navbar-nav .align-middle {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
 .nav-item {
 padding-left:10px;
 color:white;
@@ -38,6 +50,7 @@ color:white;
   --bs-nav-link-color: white;
   --bs-nav-link-hover-color: rgba(255, 255, 255, 0.72);
   --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+  display:flex;
 
 }
 
@@ -45,4 +58,8 @@ color:white;
   width:45px;
   height:45px;
   border-radius:50%;
+  }
+
+  .avatar:hover {
+    cursor:pointer;
   }

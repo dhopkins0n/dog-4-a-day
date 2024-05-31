@@ -48,6 +48,10 @@ file = URI.open("https://dogtime.com/wp-content/uploads/sites/12/2023/07/GettyIm
 dog_1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 dog_1.save!
 
+file = URI.open("https://i.pinimg.com/originals/c7/bf/dc/c7bfdc2688127a9016db513e10a52c06.jpg")
+dog_1.images.attach(io: file, filename: "nes.png", content_type: "image/png")
+dog_1.save!
+
 
 dog_2 = Dog.new(
   name: "Scooby",

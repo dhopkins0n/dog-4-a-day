@@ -1,26 +1,59 @@
+<div class="page-container pt-5">
+  <div class="dashboard-container">
+    <div class="row">
+      <div class="col-6 col-md-4">
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "profile-avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %>
+        <% else %>
+          <%= image_tag "avatar_placeholder.webp", class: "profile-avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %>
+        <% end %>
+        <div class="profile-copy">
+          <h2>Hi, <%= current_user.first_name %></h2>
+          <p>This is your profile page</p>
+          <div class="mt-3">
+            <%= link_to 'Register a new dog', new_dog_path, class: 'btn-ghost' %>
+          </div>
+          <% if current_user.dogs.any? %>
+            <p class="pt-4">These are the dogs that you currently have on file</p>
+          <% else %>
+            <p class="pt-4">You don't have any dogs on file</p>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-8">
+        <div class="personal-card-list">
+          <% if current_user.dogs.any? %>
+            <% current_user.dogs.each do |dog| %>
+              <div class="personal-card-item padding-card">
+                <div class="d-flex align-items-end flex-column mb-3">
+                  <%= button_to "Unlist", dog, method: :delete, class: "personal-card-btn-outline float-right", data: { confirm: "Are you sure you want to delete this dog?" }, "turbo-frame": "_top" %>
+                </div>
+                <% if dog.photo.attached? %>
+                  <%= image_tag dog.photo, class: "dog-photo" %>
+                <% else %>
+                  <%= image_tag "https://images.unsplash.com/photo-1566710582818-d673dc761201?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "dog-photo" %>
+                <% end %>
+                <div class="personal-card-title">
+                  <h2 class="uppercase-text"><%= dog.name %></h2>
+                  <div class="personal-card-sub-title">
+                    <h3>Age: <%= dog.age %></h3>
+                    <h3><%= dog.breed %></h3>
+                  </div>
+                </div>
+                <div class="d-flex gap-3">
+                  <%= link_to "See profile", dog_path(dog), class: "personal-card-btn" %>
+                  <%= link_to "Edit", edit_dog_path(dog), class: "personal-card-btn" %>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p class="pt-4">You don't have any dogs on file</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
 
-<div data-controller="toggle">
-<button  data-action= "click->toggle#fire">
-My dogs +
-</button>
-
-
-<div class= "d-none" data-toggle-target="togglableElement">
-<ul>
-    <% current_user.dogs.each do |dog| %>
-  <li>
-      <%= link_to dog.name, dog_path(dog) %>
-      <div>
-  <%= link_to "Edit this dog", edit_dog_path(dog) %>
-  <%= button_to "un-list this dog", dog, method: :delete, class: 'btn btn-danger'%>
-</div>
-  </li>
-    <% end %>
-</ul>
-<%= link_to 'register a new dog', new_dog_path, class: 'btn btn-primary btn-lg shadow-lg custom-button' %>
-</div>
-</div>
 
 
 <div data-controller="toggle">
@@ -38,6 +71,7 @@ My bookings +
 </ul>
 </div>
 </div>
+
 
 
  <div data-controller="toggle">
@@ -63,5 +97,81 @@ My dog's booking requests +
  <% end %>
       </li>
     <% end %>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div data-controller="toggle" class="mt-5">
+  <button data-action="click->toggle#fire" class="btn btn-outline-primary" data-filter-target="upcoming">Bookings for Frankie</button>
+  <button data-action="click->toggle#fire" class="btn btn-outline-primary" data-filter-target="upcoming">Upcoming Bookings</button>
+  <button data-action="click->toggle#fire" class="btn btn-outline-primary" data-filter-target="past">Past Bookings</button>
+
+  <div data-toggle-target="upcoming" class="d-none">
+    <% current_user.bookings.order(start_time: :asc).each do |booking| %>
+      <div class="booking-container d-flex flex-row justify-content-start">
+        <!-- Your existing booking display code here -->
+      </div>
+    <% end %>
+  </div>
+
+  <div data-toggle-target="past" class="d-none">
+    <% current_user.bookings.order(start_time: :desc).each do |booking| %>
+      <div class="booking-container d-flex flex-row justify-content-start">
+        <!-- Your existing booking display code here -->
+      </div>
+    <% end %>
+  </div>
+</div>
+
+    <% current_user.bookings.order(created_at: :desc).each do |booking| %>
+      <div class="booking-container d-flex flex-row justify-content-start">
+        <div class="row w-100">
+          <div class="col-2">
+            <div class="date-group">
+              <p><strong><%= booking.start_time.strftime("%a").upcase %></strong></p>
+              <h2 class="date-weight"><%= booking.start_time.strftime("%d") %></h2>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="time-location-group">
+              <p><i class="fa-solid fa-clock"></i><%= booking.start_time.strftime("%I:%M%p") %> - <%= booking.end_time.strftime("%I:%M%p") %></p>
+              <p><i class="fa-solid fa-location-dot"></i> Location </p>
+            </div>
+          </div>
+          <div class="col-4">
+          </div>
+
+          <div class="col-3">
+            <div class="renter-details-group d-flex">
+              <% dog = booking.dog %>
+              <% if dog.photo.attached? %>
+                <%= image_tag dog.photo, class: "avatar-tiny" %>
+              <% else %>
+                <%= image_tag "default_dog_image.jpg", class: "avatar-tiny" %>
+              <% end %>
+              <p><%= booking.dog.name %> <%= booking.status %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+      </div>
+  </div>
+  </div>
+</div>
 </div>
 </div>
