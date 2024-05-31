@@ -8,6 +8,9 @@ class BookingsController < ApplicationController
 
     @booking.dog = @dog
     @booking.user = current_user
+    dates = params[:booking][:start_time].split(" to ")
+    @booking.start_time = dates.first
+    @booking.end_time = dates.last
     respond_to do |format|
       if @booking.save!
         format.html { redirect_to dashboard_path}
