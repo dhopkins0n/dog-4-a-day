@@ -56,11 +56,28 @@ file = URI.open("https://media.licdn.com/dms/image/C5603AQG4gvZztc0ZZQ/profile-d
 user_3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user_3.save!
 
+user_4 = User.new(
+  email: "esme@test.com",
+  first_name: "Esme",
+  last_name: "Chong",
+  phone_number: "123456",
+  address: "Camden",
+  password: "123456"
+
+)
+
+file = URI.open("https://pbs.twimg.com/media/EDj4TD7WsAgGrA9.jpg")
+user_4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user_4.save!
+
 dog_1 = Dog.new(
   name: "Frankie",
   age: "5",
   breed: "Cava-poo",
   description: "lovely 🐶",
+  summary: "Cockapoos are bred more for temperament than for appearance, and they tend to inherit the sweet, loving and friendly natures common with both parent breeds. They are highly intelligent, easy to train and also typically inherit the poodle's enthusiasm and tendency to be little jokers.
+
+  These dogs tend to be extremely friendly and thrive on social interaction. They hate to be left alone and can develop separation anxiety if left solo for long periods. They get along well with other pets and children although, due to their high energy and enthusiasm, they tend to do better with older children and should be supervised around young children.",
   user: user_1
 )
 
@@ -105,6 +122,7 @@ dog_4 = Dog.new(
   age: "3",
   breed: "labrador",
   description: "Lovely energetic dog that plays well with others but sheds a lot",
+  summary: "Labrador Retrievers, often simply called Labs, are one of the most popular dog breeds worldwide, known for their friendly and outgoing nature. With their iconic floppy ears, expressive eyes, and wagging tails, Labs exude charm and warmth. Renowned for their intelligence and eagerness to please, Labs excel in various roles, from assistance and therapy work to search and rescue missions. Their gentle demeanor and patience also make them exceptional companions for children, earning them the reputation of being one of the best family dogs.",
   user: user_3
 )
 
@@ -115,5 +133,5 @@ dog_4.save!
 file = URI.open("https://images.squarespace-cdn.com/content/v1/61cc8ba17cd0966138da88e6/1681741744001-RLN9CEPSW0MOBNZIG018/0CFE339E-AB82-43B8-91DB-7DE63EA487DF.jpeg")
 dog_4.images.attach(io: file, filename: "nes.png", content_type: "image/png")
 
-dog_4.tag_list.add('Neutered ✂️','good with children 👶🏽','need company ✋🏽','need exercise 🎾' 'house trained 💩')
+dog_4.tag_list.add('Neutered ✂️','good with children 👶🏽','need company ✋🏽','need exercise 🎾', 'house trained 💩')
 dog_4.save!
