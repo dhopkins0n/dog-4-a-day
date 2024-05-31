@@ -1,5 +1,5 @@
 .btn-ghost {
-  width:100px;
+  width:auto;
   color: #ffffff;
   border: 1px solid #ffffff;
   padding: 8px 24px;
@@ -10,8 +10,26 @@
   font-family: "Lato", sans-serif;
   font-weight: 300;
   font-style: normal;
+  background-color: black;
 
 }
+
+.btn-white {
+  width:auto;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  color:black;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 100%;
+  transition:  0.5s ease;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+
+}
+
 
 .btn-ghost:hover {
   background-color: #ffffff;
