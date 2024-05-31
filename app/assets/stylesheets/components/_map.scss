@@ -4,11 +4,47 @@
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
-  background-color: black;
+  text-align: left;
+  border-radius:20px;
+  background-color: rgb(255, 255, 255);
   font-family: "Open Sans", sans-serif;
+  color:black;
 }
+
+.mapboxgl-popup-content ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.mapboxgl-popup-content p {
+  color:black;
+}
+
+.mapboxgl-popup-content li {
+  color:black;
+}
+.mapboxgl-popup-content a {
+  color:black;
+}
+
+.mapboxgl-popup-content a:hover {
+  color:black;
+  text-decoration:underline;
+}
+
 .mapboxgl-popup-tip {
 border: none;
 
+}
+.info-list li {
+  color: black !important;
+}
+
+.info-list p {
+  color: black !important;
+}
+
+.mapboxgl-popup-close-button {
+  padding-left:5px;
+  padding-top:5px;
 }
