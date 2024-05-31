@@ -22,6 +22,10 @@ user_1 = User.create!(
   password: "123456"
 )
 
+file = URI.open("https://media.licdn.com/dms/image/D4E03AQFohqu7scaWTw/profile-displayphoto-shrink_200_200/0/1699433378820?e=2147483647&v=beta&t=qK1YKOYKLkkFGnN0rz55_g72CN3XKb3JQQ0gH9q3a3o")
+user_1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user_1.save!
+
 user_2 = User.new(
   email: "test@test.com",
   first_name: "Shaggy",
@@ -35,6 +39,22 @@ user_2 = User.new(
 file = URI.open("https://i.ebayimg.com/images/g/MCoAAOSwhdhicr~Q/s-l1200.jpg")
 user_2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user_2.save!
+
+
+
+user_3 = User.new(
+  email: "ben@test.com",
+  first_name: "Ben",
+  last_name: "Baranger",
+  phone_number: "123456",
+  address: " Crystal Palace",
+  password: "123456"
+
+)
+
+file = URI.open("https://media.licdn.com/dms/image/C5603AQG4gvZztc0ZZQ/profile-displayphoto-shrink_400_400/0/1539616951880?e=1722470400&v=beta&t=HFR3vpDeyXtHHTBsfmvNVb4-aV_2kLwkfJWddRbIABQ")
+user_3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user_3.save!
 
 dog_1 = Dog.new(
   name: "Frankie",
@@ -52,6 +72,8 @@ file = URI.open("https://i.pinimg.com/originals/c7/bf/dc/c7bfdc2688127a9016db513
 dog_1.images.attach(io: file, filename: "nes.png", content_type: "image/png")
 dog_1.save!
 
+dog_1.tag_list.add('Neutered ✂️','good with children 👶🏽','need company ✋🏽')
+dog_1.save!
 
 dog_2 = Dog.new(
   name: "Scooby",
@@ -76,3 +98,22 @@ dog_3 = Dog.new(
 file = URI.open("https://cdn.hanna-barberawiki.com/thumb/b/b6/Scrappy-Doo.png/1200px-Scrappy-Doo.png")
 dog_3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 dog_3.save!
+
+
+dog_4 = Dog.new(
+  name: "Rusty",
+  age: "3",
+  breed: "labrador",
+  description: "Lovely energetic dog that plays well with others but sheds a lot",
+  user: user_3
+)
+
+file = URI.open("https://labfoxred.com/wp-content/uploads/2022/08/Jason09.jpeg")
+dog_4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+dog_4.save!
+
+file = URI.open("https://images.squarespace-cdn.com/content/v1/61cc8ba17cd0966138da88e6/1681741744001-RLN9CEPSW0MOBNZIG018/0CFE339E-AB82-43B8-91DB-7DE63EA487DF.jpeg")
+dog_4.images.attach(io: file, filename: "nes.png", content_type: "image/png")
+
+dog_4.tag_list.add('Neutered ✂️','good with children 👶🏽','need company ✋🏽','need exercise 🎾' 'house trained 💩')
+dog_4.save!
