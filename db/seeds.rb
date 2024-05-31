@@ -66,7 +66,7 @@ user_4 = User.new(
 
 )
 
-file = URI.open("https://pbs.twimg.com/media/EDj4TD7WsAgGrA9.jpg")
+file = URI.open("https://media.licdn.com/dms/image/C5603AQGqjkoOm2wC7A/profile-displayphoto-shrink_200_200/0/1569419228702?e=2147483647&v=beta&t=_7Gd0jbn_ZV0lxMhq_1DUSAHd-yLowuxtNqwPMZEEc4")
 user_4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user_4.save!
 
