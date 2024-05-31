@@ -61,7 +61,7 @@ user_4 = User.new(
   first_name: "Esme",
   last_name: "Chong",
   phone_number: "123456",
-  address: "Camden",
+  address: "Camden  London N1",
   password: "123456"
 
 )
@@ -87,7 +87,10 @@ dog_1.save!
 
 file = URI.open("https://i.pinimg.com/originals/c7/bf/dc/c7bfdc2688127a9016db513e10a52c06.jpg")
 dog_1.images.attach(io: file, filename: "nes.png", content_type: "image/png")
-dog_1.save!
+
+file = URI.open("https://i.pinimg.com/736x/ab/a5/5e/aba55ee9fc483b15a37cc0499288857d.jpg")
+dog_1.images.attach(io: file, filename: "nes.png", content_type: "image/png")
+
 
 dog_1.tag_list.add('Neutered ✂️','good with children 👶🏽','need company ✋🏽')
 dog_1.save!
@@ -131,6 +134,9 @@ dog_4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 dog_4.save!
 
 file = URI.open("https://images.squarespace-cdn.com/content/v1/61cc8ba17cd0966138da88e6/1681741744001-RLN9CEPSW0MOBNZIG018/0CFE339E-AB82-43B8-91DB-7DE63EA487DF.jpeg")
+dog_4.images.attach(io: file, filename: "nes.png", content_type: "image/png")
+
+file = URI.open("https://preview.redd.it/bgdwbyylvqq21.jpg?width=640&crop=smart&auto=webp&s=b51e9639dbf54d6b630a5733e79f5e99860c7320")
 dog_4.images.attach(io: file, filename: "nes.png", content_type: "image/png")
 
 dog_4.tag_list.add('Neutered ✂️','good with children 👶🏽','need company ✋🏽','need exercise 🎾', 'house trained 💩')
