@@ -2,7 +2,7 @@ class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
   def index
     @dogs = Dog.all
-    @users = User.all
+    @users = User.joins(:dogs).distinct
    @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
