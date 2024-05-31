@@ -24,11 +24,42 @@
 }
 
 
+.booking-tag {
+
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+
+.booking-container-past a {
+text-decoration: underline;
+}
+.approved {
+  color: rgb(19, 214, 84);
+}
+
+.pending {
+  color: rgb(236, 147, 23);
+}
+
+.declined {
+  color: rgb(210, 1, 1);
+}
+
+.text-white {
+font-family: "Lato", sans-serif;
+font-weight: 300;
+font-style: normal;
+color: white;
+margin-bottom: 20px;
+}
+
 .profile-avatar {
   border-radius: 50%;
   margin-bottom:40px;
   width:150px;
   height:150px;
+  background-size: cover; /* Scale the background image to cover the container */
 }
 
 .profile-banner {
@@ -78,6 +109,6 @@
   text-decoration:underline;
 }
 
-.booking-container-past {
+.booking-container-all {
   height:500px;
 }

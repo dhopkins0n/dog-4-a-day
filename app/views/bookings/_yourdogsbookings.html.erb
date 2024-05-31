@@ -1,0 +1,17 @@
+<div class="text-white">
+  <% current_user.bookings_as_owner.order(created_at: :desc).each do |booking| %>
+    <%= booking.user.first_name %> booked <%= booking.dog.name %> <%= booking.start_time.strftime("%A, %d %b %Y %l:%M %p") %>
+    <% if booking.status == "Pending" %>
+      <%= simple_form_for [booking.dog, booking] do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'Approved'} %>
+        <%= f.submit 'Accept', class: 'btn btn-info' %>
+      <% end %>
+      <%= simple_form_for [booking.dog, booking] do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'Declined'} %>
+        <%= f.submit 'Reject', class: 'btn btn-light' %>
+      <% end %>
+    <% else %>
+      <p class='booking-tag <%= booking.status.downcase %>'><%= booking.status %></p>
+    <% end %>
+  <% end %>
+</div>

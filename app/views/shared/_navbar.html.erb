@@ -12,17 +12,7 @@
           <li class="nav-item active">
             <%= link_to "Home", dogs_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <% if current_user %>
-              <%= link_to "Welcome, #{current_user.first_name}", "#", class: "nav-link" %>
-            <% else %>
-              <%= link_to "Welcome", "#", class: "nav-link" %>
-            <% end %>
-          </li>
-          <li class="nav-item dropdown">
+           <li class="nav-item dropdown">
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %>
             <% else %>
@@ -32,6 +22,14 @@
               <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-turbo-method="delete">Log out</a>
             </div>
           </li>
+          <li class="nav-item">
+            <% if current_user %>
+              <%= link_to "Welcome, #{current_user.first_name}", dashboard_path, class: "nav-link" %>
+            <% else %>
+              <%= link_to "Welcome", "#", class: "nav-link" %>
+            <% end %>
+          </li>
+
           <li class="nav-item"> <!-- Added custom class -->
             <%= link_to 'Register a new dog', new_dog_path, class: 'btn-white align-middle' %> <!-- Added custom class -->
           </li>
