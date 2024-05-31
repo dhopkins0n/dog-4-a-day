@@ -1,5 +1,6 @@
 
 <div class="page-container">
+<div class="dog-profile-container">
 <%= link_to dogs_path do %>
   <i class="fa-solid fa-arrow-left"></i>
   Back to All Dogs
@@ -18,11 +19,7 @@
           <p>Breed: <%= @dog.breed %></p>
           <p><%= @dog.description %></p>
           <div class="tag-list">
-          <p>Tags:
-            <% @dog.tag_list.each do |tag| %>
-              <span class="tag-item tag-selector"><%= tag %></span>
-            <% end %>
-          </p>
+            <p>Tags: <span class="tag-item"><%= @dog.tag_list.join(" , ") %></span></p>
           </div>
         </div>
       </div>
@@ -58,12 +55,13 @@
         </div>
       <% end %>
     </div>
+    <div data-controller="toggle" class="mt-5">
+      <button data-action="click->toggle#fire" class=" btn-white">Book this dog</button>
+        <div data-toggle-target="togglableElement" class="d-none">
+          <%= render 'bookings/form', dog: @dog, booking: @booking %>
+        </div>
+    </div>
 
-  <div data-controller="toggle" class="mt-5">
-    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Book this dog</button>
-      <div data-toggle-target="togglableElement" class="d-none">
-        <%= render 'bookings/form', dog: @dog, booking: @booking %>
-      </div>
   </div>
-  </div>
+</div>
 </div>

@@ -5,10 +5,10 @@
               as: :string,
               input_html: { class: "d-none", data: { controller: "datepicker", inline: true } }  %>
               <div class="d-flex">
-                <%= f.input :start_time, label: 'Start Time',  as: :string,
+                <%= f.input :start_time, label: 'Choose a date',  as: :string,
               input_html: { class: "d-none", data: { controller: "datepicker", inline: true } },
               wrapper_html: { class: 'm-3'} %>
-  <%= f.input :end_time, label: 'End Time',  as: :string,
+  <%# <%= f.input :end_time, label: 'End Time',  as: :string,
               input_html: { class: "d-none", data: { controller: "datepicker", inline: true } },
               wrapper_html: { class: 'm-3'} %>
 
@@ -21,5 +21,3 @@
   <% end %>
   <%= f.button :submit, class: "btn btn-primary"%>
 <% end %>
-
-
