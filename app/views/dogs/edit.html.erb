@@ -1,3 +1,7 @@
+<div class="page-container mt-5">
+<div class="form-container">
+<h1 class="mt-5">Your dog</h1>
+<p class="pb-5">Edit the details about your dog</p>
 <%= simple_form_for(@dog) do |f| %>
   <div class="form-inputs">
     <%= f.input :name %>
@@ -15,9 +19,13 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+<%= f.button :submit, class: "btn-white" %>
   </div>
 <% end %>
-
-<%= link_to "Show this dog", @dog %>
-<%= link_to "Back to All Dogs", dogs_path %>
+<div class="d-flex gap-3 mt-3">
+<%= link_to "Show this dog", @dog, class: "dog-links" %>
+<%= link_to "Back to All Dogs", dogs_path, class: "dog-links" %>
+</div>
+</div>
+</div>
+</div>
