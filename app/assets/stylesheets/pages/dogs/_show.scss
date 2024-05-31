@@ -8,12 +8,10 @@
   padding: 20px;
   border-radius: 10px;
   background-color: #000000;
-  height:100vh;
+  // height:100vh;
 }
 
-.dog-profile-container {
-  height: 1600px;
-}
+
 
 .dog-profile img {
   width: 150px;
@@ -31,7 +29,7 @@
 
 .profile-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .profile-description {

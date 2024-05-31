@@ -8,16 +8,16 @@
   <div class="dog-profile">
     <div class="profile-header">
       <% if @dog.photo.attached? %>
-        <%= image_tag @dog.photo, alt: @dog.name, class: "profile-picture" %>
+        <%= image_tag @dog.photo, alt: @dog.name, class: "profile-picture img-fluid rounded-circle" %>
       <% else %>
-        <img src="https://via.placeholder.com/150" alt="Placeholder image" class="profile-picture">
+        <img src="https://via.placeholder.com/150" alt="Placeholder image" class="profile-picture img-fluid rounded-circle">
       <% end %>
-      <div class="profile-description">
-        <h1><%= @dog.name %></h1>
+      <div class="profile-description col-md-9">
+        <h1 class="display-4"><%= @dog.name %></h1>
         <div class="dog-details">
           <p>Age: <%= @dog.age %></p>
           <p>Breed: <%= @dog.breed %></p>
-          <p><%= @dog.description %></p>
+          <p>Description: <%= @dog.description %></p>
           <div class="tag-list">
             <div class="tag-list">
               <% @dog.tag_list.each do |tag| %>
@@ -35,8 +35,6 @@
 
 
     <div class="gallery mt-4">
-      <h3>Photo Gallery</h3>
-
       <% if @dog.images.attached? %>
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
