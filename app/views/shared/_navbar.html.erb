@@ -29,13 +29,11 @@
               <%= image_tag "avatar_placeholder.webp", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
               <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-turbo-method="delete">Log out</a>
             </div>
           </li>
           <li class="nav-item"> <!-- Added custom class -->
-            <%= link_to 'Register a new dog', new_dog_path, class: 'btn-ghost align-middle' %> <!-- Added custom class -->
+            <%= link_to 'Register a new dog', new_dog_path, class: 'btn-white align-middle' %> <!-- Added custom class -->
           </li>
           <% else %>
           <li class="nav-item">

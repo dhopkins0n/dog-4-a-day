@@ -6,5 +6,8 @@ class PagesController < ApplicationController
 
   def dashboard
     @dogs = Dog.all
+    @bookings = current_user.bookings.where('start_time >= NOW()')
+    @past_bookings = current_user.bookings.where('start_time <= NOW()')
+
   end
 end
