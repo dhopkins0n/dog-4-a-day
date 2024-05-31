@@ -19,7 +19,13 @@
           <p>Breed: <%= @dog.breed %></p>
           <p><%= @dog.description %></p>
           <div class="tag-list">
-            <p>Tags: <span class="tag-item"><%= @dog.tag_list.join(" , ") %></span></p>
+            <div class="tag-list">
+              <% @dog.tag_list.each do |tag| %>
+                <div class="tag-in-show">
+                  <%= tag %>
+                </div>
+              <% end %>
+            </div>
           </div>
           <p> <%= @dog.summary %> </p>
         </div>
@@ -62,7 +68,6 @@
           <%= render 'bookings/form', dog: @dog, booking: @booking %>
         </div>
     </div>
-
   </div>
 </div>
 </div>
