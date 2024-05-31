@@ -8,6 +8,6 @@ class PagesController < ApplicationController
     @dogs = Dog.all
     @bookings = current_user.bookings.where('start_time >= NOW()')
     @past_bookings = current_user.bookings.where('start_time <= NOW()')
-
+    @your_dogs_bookings = Booking.where(dog: current_user.dogs)
   end
 end
