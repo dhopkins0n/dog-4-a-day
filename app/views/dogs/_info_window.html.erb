@@ -1,0 +1,8 @@
+<% user.dogs.each do |dog| %>
+<ul>
+  <li class="info-list">
+    <%= link_to dog.name, dog_path(dog) %>
+</li>
+</ul>
+ <% end %>
+<h4><%= user.address %></h4>
