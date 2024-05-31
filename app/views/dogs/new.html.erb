@@ -9,6 +9,7 @@
     <%= f.input :breed %>
     <%= f.input :description %>
     <%= f.input :photo, as: :file %>
+    <%= f.input :summary %>
     <%= f.input :tag_list, as: :check_boxes, input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' ,collection: [ 'Neutered ✂️', 'good with cats 🐈', 'good with children 👶🏽', 'good with other dogs 🐶', 'need company ✋🏽', 'need exercise 🎾' ] %>
   </div>

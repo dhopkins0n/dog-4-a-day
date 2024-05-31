@@ -4,6 +4,7 @@
     <%= f.input :age %>
     <%= f.input :breed %>
     <%= f.input :description %>
+    <%= f.input :summary %>
     <% @dog.images.each do |image| %>
     <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
     <% end %>
