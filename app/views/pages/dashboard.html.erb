@@ -65,7 +65,7 @@ My bookings +
 <ul>
     <% current_user.bookings.order(created_at: :desc).each do |booking| %>
   <li>
-      <%= booking.dog.name %> <%= booking.start_time.strftime("booked for %m/%d/%Y at %I:%M%p") %> <%= booking.status %>
+      <%= booking.dog.name %> <%= booking.start_time.strftime("booked from %d/%m/%Y at %I:%M%p") %> <%= booking.end_time.strftime(" to %d/%m/%Y at %I:%M%p") %>, status: <%= booking.status %>
   </li>
     <% end %>
 </ul>
